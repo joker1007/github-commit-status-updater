@@ -1,24 +1,26 @@
 # Github::Commit::Status::Updater
 
-TODO: Write a gem description
-
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'github-commit-status-updater'
+    gem 'github-commit-status-updater', github: 'joker1007/github-commit-status-updater'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install github-commit-status-updater
-
 ## Usage
 
-TODO: Write usage instructions here
+```
+Tasks:
+  github-commit-status-updater failure -r, --repo=REPO -s, --sha1=SHA1  # commit status failure
+  github-commit-status-updater help [TASK]                              # Describe available tasks or one specific task
+  github-commit-status-updater success -r, --repo=REPO -s, --sha1=SHA1  # commit status success
+
+```
+
+And `-u username` and `-p password` options
 
 ## Contributing
 

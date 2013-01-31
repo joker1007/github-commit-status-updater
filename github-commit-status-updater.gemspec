@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Github::Commit::Status::Updater::VERSION
   gem.authors       = ["joker1007"]
   gem.email         = ["kakyoin.hierophant@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Github commit status api helper}
+  gem.summary       = %q{Github commit status api helper}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
