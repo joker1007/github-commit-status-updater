@@ -1,7 +1,4 @@
-# A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "octokit"
-gem "thor"
-
-# gem "rails"
+# Specify your gem's dependencies in github-commit-status-updater.gemspec
+gemspec
