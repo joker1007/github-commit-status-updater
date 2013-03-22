@@ -9,6 +9,7 @@ class GithubCommitStatusUpdater < Thor
   method_option :sha1, :type => :string, :required => true, :aliases => "-s"
   method_option :username, :type => :string, :aliases => "-u"
   method_option :password, :type => :string, :aliases => "-p"
+  method_option :oauth_token, :type => :string
   desc "success", "commit status success"
   def success
     client.create_status(options.repo, options.sha1, "success")
@@ -21,6 +22,7 @@ class GithubCommitStatusUpdater < Thor
   method_option :sha1, :type => :string, :required => true, :aliases => "-s"
   method_option :username, :type => :string, :aliases => "-u"
   method_option :password, :type => :string, :aliases => "-p"
+  method_option :oauth_token, :type => :string
   desc "failure", "commit status failure"
   def failure
     client.create_status(options.repo, options.sha1, "failure")
@@ -33,6 +35,8 @@ class GithubCommitStatusUpdater < Thor
   def client
     if options.username && options.password
       Octokit::Client.new(:login => options.username, :password => options.password)
+    elsif options.username && options.oauth_token
+      Octokit::Client.new(:login => options.username, :oauth_token => options.oauth_token)
     else
       Octokit::Client.new
     end
