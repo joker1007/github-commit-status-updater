@@ -20,7 +20,11 @@ Tasks:
 
 ```
 
-And `-u username` and `-p password` options
+And options for credential:
+
+- `-u username`
+- `-p password`
+- `--oauth-token token`
 
 ## Contributing
 
