@@ -5,30 +5,24 @@ require "octokit"
 require "thor"
 
 class GithubCommitStatusUpdater < Thor
-  method_option :repo, :type => :string, :required => true, :aliases => "-r"
-  method_option :sha1, :type => :string, :required => true, :aliases => "-s"
-  method_option :username, :type => :string, :aliases => "-u"
-  method_option :password, :type => :string, :aliases => "-p"
-  method_option :oauth_token, :type => :string
-  desc "success", "commit status success"
-  def success
-    client.create_status(options.repo, options.sha1, "success")
-    puts "status success"
-  rescue Octokit::Error
-    puts "update error"
-  end
+  STATUSES = %w(pending success failure error)
 
-  method_option :repo, :type => :string, :required => true, :aliases => "-r"
-  method_option :sha1, :type => :string, :required => true, :aliases => "-s"
-  method_option :username, :type => :string, :aliases => "-u"
-  method_option :password, :type => :string, :aliases => "-p"
-  method_option :oauth_token, :type => :string
-  desc "failure", "commit status failure"
-  def failure
-    client.create_status(options.repo, options.sha1, "failure")
-    puts "status failure"
-  rescue Octokit::Error
-    puts "update error"
+  STATUSES.each do |method|
+    method_option :repo, :type => :string, :required => true, :aliases => "-r"
+    method_option :sha1, :type => :string, :required => true, :aliases => "-s"
+    method_option :username, :type => :string, :aliases => "-u"
+    method_option :password, :type => :string, :aliases => "-p"
+    method_option :oauth_token, :type => :string
+
+    desc "#{method}", "commit status #{method}"
+    define_method "#{method}" do
+      begin
+        client.create_status(options.repo, options.sha1, method)
+        puts "Changed status as #{method}"
+      rescue Octokit::Error => e
+        $stderr.puts "Update error: #{e.message}"
+      end
+    end
   end
 
   private
