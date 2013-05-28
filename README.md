@@ -13,12 +13,16 @@ And then execute:
 ## Usage
 
 ```
-Tasks:
+Commands:
+  github-commit-status-updater error -r, --repo=REPO -s, --sha1=SHA1    # commit status error
   github-commit-status-updater failure -r, --repo=REPO -s, --sha1=SHA1  # commit status failure
-  github-commit-status-updater help [TASK]                              # Describe available tasks or one specific task
+  github-commit-status-updater help [COMMAND]                           # Describe available commands or one specific command
+  github-commit-status-updater pending -r, --repo=REPO -s, --sha1=SHA1  # commit status pending
   github-commit-status-updater success -r, --repo=REPO -s, --sha1=SHA1  # commit status success
-
 ```
+
+- format for `repo` is like 'joker1007/github-commit-status-updater' (owner/repo)
+- `sha` must be a 40 character SHA1
 
 And options for credential:
 
