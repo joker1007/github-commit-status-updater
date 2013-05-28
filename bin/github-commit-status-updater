@@ -13,11 +13,13 @@ class GithubCommitStatusUpdater < Thor
     method_option :username, :type => :string, :aliases => "-u"
     method_option :password, :type => :string, :aliases => "-p"
     method_option :oauth_token, :type => :string
+    method_option :target_url, :type => :string
+    method_option :description, :type => :string
 
     desc "#{method}", "commit status #{method}"
     define_method "#{method}" do
       begin
-        client.create_status(options.repo, options.sha1, method)
+        client.create_status(options.repo, options.sha1, method, {target_url: options.target_url, description: options.description})
         puts "Changed status as #{method}"
       rescue Octokit::Error => e
         $stderr.puts "Update error: #{e.message}"
