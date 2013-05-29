@@ -29,6 +29,8 @@ And options for credential:
 - `-u username`
 - `-p password`
 - `--oauth-token token`
+- `--target-url URL`
+- `--description description`
 
 ## Contributing
 
