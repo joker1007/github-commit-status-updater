@@ -1,8 +1,11 @@
 # Github::Commit::Status::Updater
+Simple CLI Tools for GitHub commit status.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+    $ gem install github-commit-status-updater
+
+Or, add this line to your application's Gemfile:
 
     gem 'github-commit-status-updater', github: 'joker1007/github-commit-status-updater'
 
