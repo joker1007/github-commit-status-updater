@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["kakyoin.hierophant@gmail.com"]
   gem.description   = %q{Github commit status api helper}
   gem.summary       = %q{Github commit status api helper}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/joker1007/github-commit-status-updater"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
