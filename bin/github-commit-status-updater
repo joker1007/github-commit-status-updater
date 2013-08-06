@@ -15,10 +15,17 @@ class GithubCommitStatusUpdater < Thor
     method_option :oauth_token, :type => :string
     method_option :target_url, :type => :string
     method_option :description, :type => :string
+    method_option :web_endpoint, :type => :string
 
     desc "#{method}", "commit status #{method}"
     define_method "#{method}" do
       begin
+        if options.web_endpoint
+          Octokit.configure do |c|
+            c.api_endpoint = options.web_endpoint + 'api/v3'
+            c.web_endpoint = options.web_endpoint
+          end
+        end
         client.create_status(options.repo, options.sha1, method, {target_url: options.target_url, description: options.description})
         puts "Changed status as #{method}"
       rescue Octokit::Error => e
