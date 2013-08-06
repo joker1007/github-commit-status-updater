@@ -32,8 +32,9 @@ And options for credential:
 - `-u username`
 - `-p password`
 - `--oauth-token token`
-- `--target-url URL`
+- `--target_url URL`
 - `--description description`
+- `--web_endpoint if you want to use github enterprise, --web_endpoint="http(s)://yourghedomain/"`
 
 ## Contributing
 
