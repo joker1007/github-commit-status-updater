@@ -30,6 +30,7 @@ class GithubCommitStatusUpdater < Thor
         puts "Changed status as #{method}"
       rescue Octokit::Error => e
         $stderr.puts "Update error: #{e.message}"
+        exit 1
       end
     end
   end
