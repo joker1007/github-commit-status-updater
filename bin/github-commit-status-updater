@@ -29,8 +29,7 @@ class GithubCommitStatusUpdater < Thor
         client.create_status(options.repo, options.sha1, method, {target_url: options.target_url, description: options.description})
         puts "Changed status as #{method}"
       rescue Octokit::Error => e
-        $stderr.puts "Update error: #{e.message}"
-        exit 1
+        abort "Update error: #{e.message}"
       end
     end
   end
