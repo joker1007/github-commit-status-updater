@@ -17,6 +17,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'octokit'
-  gem.add_dependency 'thor'
+  gem.add_runtime_dependency 'octokit', '>= 2'
+  gem.add_runtime_dependency 'thor'
 end

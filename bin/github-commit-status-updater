@@ -39,7 +39,7 @@ class GithubCommitStatusUpdater < Thor
     if options.username && options.password
       Octokit::Client.new(:login => options.username, :password => options.password)
     elsif options.username && options.oauth_token
-      Octokit::Client.new(:login => options.username, :oauth_token => options.oauth_token)
+      Octokit::Client.new(:login => options.username, :access_token => options.oauth_token)
     else
       Octokit::Client.new
     end
