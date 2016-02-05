@@ -19,4 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'octokit', '>= 2'
   gem.add_runtime_dependency 'thor'
+
+  gem.add_development_dependency "bundler", "~> 1.11"
+  gem.add_development_dependency "rake", "~> 10.0"
 end
