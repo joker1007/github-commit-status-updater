@@ -16,6 +16,7 @@ class GithubCommitStatusUpdater < Thor
     method_option :target_url, :type => :string
     method_option :description, :type => :string
     method_option :web_endpoint, :type => :string
+    method_option :context, :type => :string
 
     desc "#{method}", "commit status #{method}"
     define_method "#{method}" do
@@ -26,7 +27,14 @@ class GithubCommitStatusUpdater < Thor
             c.web_endpoint = options.web_endpoint
           end
         end
-        client.create_status(options.repo, options.sha1, method, {target_url: options.target_url, description: options.description})
+
+        status_options = {
+          target_url: options.target_url,
+          description: options.description,
+          context: options.context
+        }
+
+        client.create_status(options.repo, options.sha1, method, status_options)
         puts "Changed status as #{method}"
       rescue Octokit::Error => e
         abort "Update error: #{e.message}"
