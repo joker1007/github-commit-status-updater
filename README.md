@@ -1,4 +1,6 @@
 # Github::Commit::Status::Updater
+[![Gem Version](https://badge.fury.io/rb/github-commit-status-updater.svg)](https://badge.fury.io/rb/github-commit-status-updater)
+
 Simple CLI Tools for GitHub commit status.
 
 ## Installation
